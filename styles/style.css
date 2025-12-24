@@ -1,0 +1,173 @@
+/* --- Modern Glossy Glassmorphism Theme --- */
+
+/* 1. Dynamic Moving Background */
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.stApp {
+    background: radial-gradient(circle at top right, #1f2430, #0e1117),
+                radial-gradient(circle at bottom left, #1c212b, #0e1117);
+    background-size: 200% 200%;
+    animation: moveGradient 15s ease infinite;
+    color: #e0e0e0 !important;
+}
+
+/* 2. Enhanced Glassmorphism Cards */
+/* This targets metrics, forms, and containers */
+div[data-testid="stMetric"],
+div[data-testid="stExpander"],
+div.stContainer,
+[data-testid="stForm"],
+.stAlert {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+    border-radius: 20px !important;
+    padding: 25px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6) !important;
+    margin-bottom: 20px !important;
+}
+
+/* 3. High-End Typography */
+h1 {
+    background: linear-gradient(90deg, #D4AF37, #f1c40f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -1px !important;
+    margin-bottom: 30px !important;
+}
+
+h2 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* 4. Glossy Buttons with Glow */
+div.stButton > button {
+    background: linear-gradient(135deg, #D4AF37 0%, #bfa100 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 12px 30px !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+}
+
+div.stButton > button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5) !important;
+    background: #f1c40f !important;
+}
+
+/* 5. Clean Sidebar Navigation */
+[data-testid="stSidebar"] {
+    background-color: rgba(13, 17, 23, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] {
+    background: rgba(212, 175, 55, 0.1) !important;
+    border-right: 4px solid #D4AF37 !important;
+    color: #D4AF37 !important;
+}
+/* --- UI Refinement: Removing the Green Header --- */
+
+/* Targets the top decoration bar and header area */
+[data-testid="stHeader"],
+.st-emotion-cache-h5rgaw,
+header {
+    background-color: rgba(0,0,0,0) !important;
+    background: transparent !important;
+}
+
+/* Ensures the top "decoration" line is hidden */
+[data-testid="stDecoration"] {
+    display: none !important;
+}
+
+/* --- Keep all your other existing glassmorphism and color styles below --- */
+/* --- Priority Header & Metric Refinement --- */
+
+/* Targets the label (Risk Awareness / Digital Literacy) */
+[data-testid="stMetricLabel"] p {
+    font-size: 1.5rem !important; /* Larger label font */
+    font-weight: 700 !important;
+    color: #ffd666 !important; /* Muted Gold for the category */
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+/* Targets the main value (Priority 01 / Priority 02) */
+[data-testid="stMetricValue"] div {
+    font-size: 2.8rem !important; /* Large, punchy font size */
+    font-weight: 900 !important;
+    color: #D4AF37 !important; /* Champagne Gold */
+    line-height: 1.2 !important;
+}
+
+/* Ensure the glass card container scales with the larger text */
+div[data-testid="stMetric"] {
+    padding: 30px !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+/* --- Comprehensive Champagne Gold Typography --- */
+
+/* H1: Main Page Titles */
+h1 {
+    color: #D4AF37 !important; /* Bold Champagne Gold */
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.4) !important;
+    padding-bottom: 10px !important;
+}
+
+/* H2: Major Section Headings (e.g., Strategic Priorities, Need for AI Safety) */
+h2 {
+    color: #D4AF37 !important; /* Champagne Gold */
+    font-weight: 700 !important;
+    margin-top: 35px !important;
+    border-left: 5px solid #D4AF37 !important;
+    padding-left: 15px !important;
+}
+
+/* H3: Sub-headings (e.g., Our Core Approach) */
+h3 {
+    color: #ffd666 !important; /* Muted/Lighter Gold */
+    font-weight: 600 !important;
+    margin-top: 25px !important;
+    text-transform: capitalize !important;
+}
+
+/* H4: Pillar/Card Titles (e.g., Threat Identification, Cognitive Defense) */
+h4 {
+    color: #ffcc33 !important; /* Vibrant Accent Gold */
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+}
+
+/* --- Keep existing Glossy and Metric styling --- */
+[data-testid="stMetricLabel"] p {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #ffd666 !important;
+    text-transform: uppercase !important;
+}
+
+[data-testid="stMetricValue"] div {
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    color: #D4AF37 !important;
+}
