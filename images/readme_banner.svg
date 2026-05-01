@@ -1,0 +1,68 @@
+<svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI Safety Content Guide banner</title>
+  <desc id="desc">A dashboard-style banner for an AI safety education app with modules for deepfake forensics, prompt injection, scam response, and digital literacy.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="0.48" stop-color="#102236"/>
+      <stop offset="1" stop-color="#251A42"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="224" y1="58" x2="663" y2="233" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE9A3"/>
+      <stop offset="1" stop-color="#F8B500"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="1096" cy="98" r="180" fill="#38BDF8" opacity="0.13"/>
+  <circle cx="100" cy="354" r="180" fill="#F8B500" opacity="0.10"/>
+  <path d="M0 327C171 277 297 280 446 322C620 371 767 381 938 336C1062 304 1160 296 1280 319V420H0V327Z" fill="#0B1726" opacity="0.72"/>
+
+  <g opacity="0.20">
+    <path d="M62 74H1218" stroke="#FFFFFF"/>
+    <path d="M62 154H1218" stroke="#FFFFFF"/>
+    <path d="M62 234H1218" stroke="#FFFFFF"/>
+    <path d="M62 314H1218" stroke="#FFFFFF"/>
+    <path d="M164 32V388" stroke="#FFFFFF"/>
+    <path d="M324 32V388" stroke="#FFFFFF"/>
+    <path d="M484 32V388" stroke="#FFFFFF"/>
+    <path d="M644 32V388" stroke="#FFFFFF"/>
+    <path d="M804 32V388" stroke="#FFFFFF"/>
+    <path d="M964 32V388" stroke="#FFFFFF"/>
+    <path d="M1124 32V388" stroke="#FFFFFF"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="690" y="58" width="440" height="292" rx="22" fill="#0B1220" opacity="0.92" stroke="#334155"/>
+    <rect x="722" y="91" width="166" height="84" rx="14" fill="#111C2E" stroke="#38BDF8" stroke-opacity="0.55"/>
+    <rect x="913" y="91" width="184" height="84" rx="14" fill="#111C2E" stroke="#F8B500" stroke-opacity="0.55"/>
+    <rect x="722" y="202" width="375" height="110" rx="14" fill="#111C2E" stroke="#64748B" stroke-opacity="0.65"/>
+    <path d="M754 136L778 160L834 104" stroke="#38BDF8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M952 126H1060" stroke="#F8B500" stroke-width="11" stroke-linecap="round"/>
+    <path d="M952 150H1031" stroke="#F8B500" stroke-width="11" stroke-linecap="round" opacity="0.68"/>
+    <path d="M761 253H1048" stroke="#CBD5E1" stroke-width="10" stroke-linecap="round" opacity="0.72"/>
+    <path d="M761 282H997" stroke="#CBD5E1" stroke-width="10" stroke-linecap="round" opacity="0.42"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M238 75L358 118V211C358 276 316 326 238 350C160 326 118 276 118 211V118L238 75Z" fill="#111C2E" stroke="url(#gold)" stroke-width="8"/>
+    <path d="M202 211L229 238L284 172" stroke="url(#gold)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="414" y="132" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="58" font-weight="800">AI Safety</text>
+  <text x="414" y="198" fill="url(#gold)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="58" font-weight="800">Content Guide</text>
+  <text x="416" y="249" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">Hands-on digital literacy for synthetic media, scams,</text>
+  <text x="416" y="284" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">prompt injection, deepfakes, and classroom AI safety.</text>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">
+    <rect x="414" y="316" width="148" height="42" rx="21" fill="#17243A" stroke="#38BDF8" stroke-opacity="0.5"/>
+    <text x="441" y="344" fill="#E0F2FE">Streamlit</text>
+    <rect x="578" y="316" width="154" height="42" rx="21" fill="#17243A" stroke="#F8B500" stroke-opacity="0.55"/>
+    <text x="603" y="344" fill="#FEF3C7">Forensics</text>
+    <rect x="748" y="316" width="178" height="42" rx="21" fill="#17243A" stroke="#A78BFA" stroke-opacity="0.55"/>
+    <text x="775" y="344" fill="#EDE9FE">Safety Labs</text>
+  </g>
+</svg>

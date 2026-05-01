@@ -1,6 +1,6 @@
 # AI Safety Content Guide
 
-![AI safety forensic preview](images/facial_reconstruction.png)
+![AI Safety Content Guide banner](images/readme_banner.svg)
 
 An interactive Streamlit learning platform that helps parents, educators, and students understand the risks of AI-generated content. The app combines AI literacy lessons, forensic deepfake examples, prompt-injection simulations, scam-response scenarios, and practical reporting guidance into one guided experience.
 
