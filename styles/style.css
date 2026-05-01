@@ -1,173 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* --- Modern Glossy Glassmorphism Theme --- */
 
-/* 1. Dynamic Moving Background */
-@keyframes moveGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* 1. Celestial Glossy Background Animation */
+.stApp {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #02040a !important; /* Deep void space */
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 40px 70px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.6), transparent) !important;
+    background-size: 200px 200px !important;
+    color: #e2e8f0 !important;
+    overflow-x: hidden !important;
+    z-index: 0;
 }
 
-.stApp {
-    background: radial-gradient(circle at top right, #1f2430, #0e1117),
-                radial-gradient(circle at bottom left, #1c212b, #0e1117);
-    background-size: 200% 200%;
-    animation: moveGradient 15s ease infinite;
-    color: #e0e0e0 !important;
+/* Floating Celestial Orbs (Nebula effect) */
+[data-testid="stAppViewContainer"]::before, 
+[data-testid="stAppViewContainer"]::after {
+    content: '';
+    position: fixed;
+    width: 60vw;
+    height: 60vh;
+    border-radius: 50%;
+    filter: blur(130px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floatCelestial 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-testid="stAppViewContainer"]::before {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 65%); /* Deep Violet Nebula */
+    top: -20%;
+    left: -10%;
+}
+
+[data-testid="stAppViewContainer"]::after {
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 65%); /* Celestial Cyan */
+    bottom: -20%;
+    right: -10%;
+    animation-delay: -12s;
+    animation-duration: 30s;
+}
+
+@keyframes floatCelestial {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    33% { transform: translate(15vw, 10vh) scale(1.2); opacity: 0.9; }
+    66% { transform: translate(-10vw, 15vh) scale(0.9); opacity: 0.7; }
+    100% { transform: translate(5vw, -5vh) scale(1.1); opacity: 1; }
 }
 
 /* 2. Enhanced Glassmorphism Cards */
-/* This targets metrics, forms, and containers */
 div[data-testid="stMetric"],
-div[data-testid="stExpander"],
 div.stContainer,
 [data-testid="stForm"],
 .stAlert {
     background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(15px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
-    border-radius: 20px !important;
-    padding: 25px !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6) !important;
-    margin-bottom: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-radius: 24px !important;
+    padding: 30px !important;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5) !important;
+    margin-bottom: 25px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+div.stContainer:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.7) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
 }
 
 /* 3. High-End Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif !important;
+}
+
 h1 {
-    background: linear-gradient(90deg, #D4AF37, #f1c40f);
+    background: linear-gradient(90deg, #fceabb, #f8b500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 3rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -1px !important;
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
+    letter-spacing: -1.5px !important;
     margin-bottom: 30px !important;
+    line-height: 1.2 !important;
 }
 
 h2 {
     color: #ffffff !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     letter-spacing: -0.5px !important;
+    font-size: 2.2rem !important;
+    margin-top: 40px !important;
+    border-left: 6px solid #f8b500 !important;
+    padding-left: 20px !important;
+    background: linear-gradient(90deg, rgba(248, 181, 0, 0.15), transparent);
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+h3 {
+    color: #ffd666 !important;
+    font-weight: 700 !important;
+    font-size: 1.8rem !important;
+    margin-top: 30px !important;
+}
+
+h4 {
+    color: #ffcc33 !important;
+    font-weight: 700 !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 15px !important;
+}
+
+/* Make text larger and more readable */
+p, li, span, div.stMarkdown, [data-testid="stMarkdownContainer"] {
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    color: #cbd5e1 !important;
+    font-weight: 400 !important;
+}
+
+/* Emphasize bold text */
+b, strong {
+    color: #f8fafc !important;
+    font-weight: 600 !important;
 }
 
 /* 4. Glossy Buttons with Glow */
-div.stButton > button {
-    background: linear-gradient(135deg, #D4AF37 0%, #bfa100 100%) !important;
-    color: #000 !important;
+div.stButton > button, div[data-testid="stFormSubmitButton"] > button {
+    background: linear-gradient(135deg, #f8b500 0%, #fceabb 100%) !important;
+    color: #1e293b !important;
     border: none !important;
-    border-radius: 12px !important;
-    padding: 12px 30px !important;
-    font-weight: 700 !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+    border-radius: 14px !important;
+    padding: 14px 35px !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    font-family: 'Outfit', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    box-shadow: 0 4px 15px rgba(248, 181, 0, 0.4) !important;
 }
 
-div.stButton > button:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5) !important;
-    background: #f1c40f !important;
+div.stButton > button p, div[data-testid="stFormSubmitButton"] > button p {
+    color: #1e293b !important;
+    font-weight: 800 !important;
+}
+
+div.stButton > button:hover, div[data-testid="stFormSubmitButton"] > button:hover {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 0 10px 30px rgba(248, 181, 0, 0.6) !important;
 }
 
 /* 5. Clean Sidebar Navigation */
 [data-testid="stSidebar"] {
-    background-color: rgba(13, 17, 23, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
+    background-color: rgba(10, 13, 20, 0.85) !important;
+    backdrop-filter: blur(25px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-testid="stSidebarNav"] a {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.1rem !important;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease !important;
 }
 
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    background: rgba(212, 175, 55, 0.1) !important;
-    border-right: 4px solid #D4AF37 !important;
-    color: #D4AF37 !important;
+    background: linear-gradient(90deg, rgba(248, 181, 0, 0.15), transparent) !important;
+    border-right: 4px solid #f8b500 !important;
+    color: #f8b500 !important;
+    font-weight: 700 !important;
 }
+
 /* --- UI Refinement: Removing the Green Header --- */
-
-/* Targets the top decoration bar and header area */
 [data-testid="stHeader"],
-.st-emotion-cache-h5rgaw,
 header {
-    background-color: rgba(0,0,0,0) !important;
-    background: transparent !important;
+    background-color: transparent !important;
 }
-
-/* Ensures the top "decoration" line is hidden */
 [data-testid="stDecoration"] {
     display: none !important;
 }
 
-/* --- Keep all your other existing glassmorphism and color styles below --- */
 /* --- Priority Header & Metric Refinement --- */
-
-/* Targets the label (Risk Awareness / Digital Literacy) */
 [data-testid="stMetricLabel"] p {
-    font-size: 1.5rem !important; /* Larger label font */
-    font-weight: 700 !important;
-    color: #ffd666 !important; /* Muted Gold for the category */
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-}
-
-/* Targets the main value (Priority 01 / Priority 02) */
-[data-testid="stMetricValue"] div {
-    font-size: 2.8rem !important; /* Large, punchy font size */
-    font-weight: 900 !important;
-    color: #D4AF37 !important; /* Champagne Gold */
-    line-height: 1.2 !important;
-}
-
-/* Ensure the glass card container scales with the larger text */
-div[data-testid="stMetric"] {
-    padding: 30px !important;
-    min-height: 200px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-}
-
-/* --- Comprehensive Champagne Gold Typography --- */
-
-/* H1: Main Page Titles */
-h1 {
-    color: #D4AF37 !important; /* Bold Champagne Gold */
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    border-bottom: 2px solid rgba(212, 175, 55, 0.4) !important;
-    padding-bottom: 10px !important;
-}
-
-/* H2: Major Section Headings (e.g., Strategic Priorities, Need for AI Safety) */
-h2 {
-    color: #D4AF37 !important; /* Champagne Gold */
-    font-weight: 700 !important;
-    margin-top: 35px !important;
-    border-left: 5px solid #D4AF37 !important;
-    padding-left: 15px !important;
-}
-
-/* H3: Sub-headings (e.g., Our Core Approach) */
-h3 {
-    color: #ffd666 !important; /* Muted/Lighter Gold */
-    font-weight: 600 !important;
-    margin-top: 25px !important;
-    text-transform: capitalize !important;
-}
-
-/* H4: Pillar/Card Titles (e.g., Threat Identification, Cognitive Defense) */
-h4 {
-    color: #ffcc33 !important; /* Vibrant Accent Gold */
-    font-weight: 700 !important;
-    margin-bottom: 10px !important;
-}
-
-/* --- Keep existing Glossy and Metric styling --- */
-[data-testid="stMetricLabel"] p {
+    font-family: 'Outfit', sans-serif !important;
     font-size: 1.4rem !important;
     font-weight: 700 !important;
     color: #ffd666 !important;
     text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
 }
 
 [data-testid="stMetricValue"] div {
-    font-size: 3rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 3.5rem !important;
     font-weight: 900 !important;
-    color: #D4AF37 !important;
+    background: linear-gradient(90deg, #fceabb, #f8b500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1 !important;
+}
+
+div[data-testid="stMetric"] {
+    padding: 35px !important;
+    min-height: 220px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    border-top: 3px solid #f8b500 !important; /* Accent border */
+}
+
+/* Modern Tabs */
+button[data-baseweb="tab"] {
+    font-size: 1.25rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 600 !important;
+    color: #94a3b8 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 15px 25px !important;
+    transition: all 0.3s ease !important;
+}
+
+button[data-baseweb="tab"]:hover {
+    color: #e2e8f0 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #f8b500 !important;
+    background: linear-gradient(0deg, rgba(248, 181, 0, 0.1) 0%, transparent 100%) !important;
+    border-bottom: 4px solid #f8b500 !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* Expanders */
+[data-testid="stExpander"] {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    margin-bottom: 15px !important;
+}
+
+[data-testid="stExpander"] summary {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif !important;
+    color: #f8b500 !important;
+    padding: 20px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    transition: background 0.3s ease !important;
+}
+
+[data-testid="stExpander"] summary:hover {
+    background: rgba(248, 181, 0, 0.1) !important;
+}
+
+/* Alerts and Callouts */
+div[data-testid="stAlert"] {
+    border-radius: 16px !important;
+    padding: 20px 25px !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    font-size: 1.15rem !important;
+}
+
+/* Links */
+a {
+    color: #f8b500 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+a:hover {
+    color: #fceabb !important;
+    text-shadow: 0 0 10px rgba(248, 181, 0, 0.5) !important;
+}
+
+/* Input Fields */
+input, textarea, select, [data-baseweb="select"] > div, div[data-baseweb="base-input"] {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    font-size: 1.1rem !important;
+    padding: 12px !important;
+    transition: all 0.3s ease !important;
+}
+input:focus, textarea:focus, div[data-baseweb="base-input"]:focus-within {
+    border-color: #f8b500 !important;
+    box-shadow: 0 0 15px rgba(248, 181, 0, 0.3) !important;
+}
+
+/* Divider */
+hr {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    margin: 40px 0 !important;
+}
+
+/* Tables */
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+th {
+    background-color: rgba(248, 181, 0, 0.1) !important;
+    color: #f8b500 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    text-transform: uppercase !important;
+    padding: 15px !important;
+}
+td {
+    padding: 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: #cbd5e1 !important;
+}
+tr:hover td {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Fix Labels and Dropdown Visibility */
+label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
+    color: #ffd666 !important;
+    font-weight: 600 !important;
+}
+
+/* Fix Dropdown Popover List */
+[data-baseweb="popover"] {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+}
+[data-baseweb="popover"] li, [data-baseweb="popover"] span, [data-baseweb="popover"] div {
+    color: #f8fafc !important;
+}
+[data-baseweb="popover"] li:hover {
+    background-color: rgba(248, 181, 0, 0.2) !important;
+}
+
+/* Ensure selected option text is visible inside the box */
+[data-baseweb="select"] span, [data-baseweb="select"] div, [data-baseweb="select"] {
+    color: #ffffff !important;
 }

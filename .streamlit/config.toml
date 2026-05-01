@@ -2,7 +2,7 @@
 
 [theme]
 # Base: Use a true dark, neutral color for elements that need to feel solid (like headers/footers)
-base="#11151c"
+base="dark"
 
 # BackgroundColor: The main surface color (Deep Forest Green) - Excellent
 backgroundColor="#006400"
@@ -18,15 +18,15 @@ primaryColor="#ffb300"
 
 # GlossyBackgroundColor: Use the Slate Grey for glossy components.
 # It offers the best metallic/chrome contrast with the dark background.
-glossyBackgroundColor="#292d34"
+# glossyBackgroundColor="#292d34"
 
 # -- New Additions for Polish & Accessibility --
 
 # SubtleTextColor: A slightly desaturated color for secondary text (e.g., helper text)
-subtleTextColor="#b3c4c1"
+# subtleTextColor="#b3c4c1"
 
 # ErrorColor: A high-contrast color for errors and warnings.
-errorColor="#ff4500"
+# errorColor="#ff4500"
 
 # SuccessColor: A refined, slightly warmer green for success/alert boxes.
-successColor="#3f7a4c"
+# successColor="#3f7a4c"
