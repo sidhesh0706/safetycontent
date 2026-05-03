@@ -6,14 +6,6 @@
 
 AI Safety Content Guide turns synthetic-media risk into hands-on learning: users practice spotting deepfake artifacts, responding to AI-enabled scams, understanding prompt injection, moderating suspicious content, and building healthier digital literacy habits.
 
-## Demo Screenshots
-
-> Current repo visuals are included below. After deployment, add live UI screenshots from Streamlit Community Cloud for an even stronger portfolio presentation.
-
-| App overview | Deepfake forensics module |
-| --- | --- |
-| ![AI Safety Content Guide product banner](images/readme_banner.svg) | ![AI facial reconstruction forensic example](images/facial_reconstruction.png) |
-
 ## Problem
 
 Generative AI has lowered the barrier for creating convincing text, images, audio, and video. For families and classrooms, the challenge is not only technical detection. The larger problem is helping people slow down, verify information, recognize manipulation patterns, and know what to do when something feels suspicious.
