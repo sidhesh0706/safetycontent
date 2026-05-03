@@ -4,11 +4,11 @@
 # Base: Use a true dark, neutral color for elements that need to feel solid (like headers/footers)
 base="dark"
 
-# BackgroundColor: The main surface color (Deep Forest Green) - Excellent
-backgroundColor="#006400"
+# BackgroundColor: Match the custom app theme so loading states do not flash green.
+backgroundColor="#02040a"
 
-# SecondaryBackgroundColor: The sidebar/card surface color (Deep Amethyst Purple) - Excellent for contrast
-secondaryBackgroundColor="#708090"
+# SecondaryBackgroundColor: Dark slate surface for sidebar and Streamlit base components.
+secondaryBackgroundColor="#0f172a"
 
 # TextColor: Bright white for maximum readability.
 textColor="#fafafa"

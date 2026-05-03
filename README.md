@@ -2,123 +2,174 @@
 
 ![AI Safety Content Guide banner](images/readme_banner.svg)
 
-An interactive Streamlit learning platform that helps parents, educators, and students understand the risks of AI-generated content. The app combines AI literacy lessons, forensic deepfake examples, prompt-injection simulations, scam-response scenarios, and practical reporting guidance into one guided experience.
+**An interactive AI safety education platform for students, parents, and educators.**
 
-## Why This Project Stands Out
+AI Safety Content Guide turns synthetic-media risk into hands-on learning: users practice spotting deepfake artifacts, responding to AI-enabled scams, understanding prompt injection, moderating suspicious content, and building healthier digital literacy habits.
 
-Generative AI has made synthetic text, images, audio, and video easier to create and harder to verify. This project turns that problem into a hands-on educational experience: users do not just read about misinformation, they practice identifying it, responding to it, and building safer digital habits.
+## Demo Screenshots
 
-## Core Features
+> Current repo visuals are included below. After deployment, add live UI screenshots from Streamlit Community Cloud for an even stronger portfolio presentation.
 
-- **AI safety learning path** covering misinformation, algorithmic bias, prompt injection, AI hallucinations, and child-facing content risks.
-- **Forensic challenge module** with local AI-generated image cases that train users to spot artifacts such as warped geometry, inconsistent lighting, extra limbs, and blended objects.
-- **AI text X-Ray analyzer** that demonstrates rule-based synthetic-writing signals and teaches users why detector results should be treated carefully.
-- **Prompt injection simulator** where users experiment with jailbreak-style prompts in a controlled training environment.
-- **Interactive crisis simulator** for AI voice-clone scams, deepfake investment fraud, and authority phishing attempts.
-- **Content moderator sandbox** that scores user decisions on realistic social-media misinformation examples.
-- **Knowledge quiz engine** with randomized rounds, explanations, and cumulative scoring.
-- **Community sharing board** for parents and educators to share experiences and mitigation tips.
-- **Research hub** linking AI safety, ethics, education, and digital citizenship resources.
+| App overview | Deepfake forensics module |
+| --- | --- |
+| ![AI Safety Content Guide product banner](images/readme_banner.svg) | ![AI facial reconstruction forensic example](images/facial_reconstruction.png) |
+
+## Problem
+
+Generative AI has lowered the barrier for creating convincing text, images, audio, and video. For families and classrooms, the challenge is not only technical detection. The larger problem is helping people slow down, verify information, recognize manipulation patterns, and know what to do when something feels suspicious.
+
+## Solution
+
+This project packages AI safety concepts into an interactive Streamlit experience. Instead of only presenting static advice, it gives learners practical modules for investigation, reflection, and response.
+
+## Features
+
+| Area | What It Does | Why It Matters |
+| --- | --- | --- |
+| AI misinformation lessons | Explains synthetic media, bias, hallucinations, and unsafe AI use cases | Builds a baseline mental model for non-technical users |
+| Deepfake forensics | Uses local visual cases to teach artifact spotting | Turns detection into a concrete observation skill |
+| Prompt-injection simulator | Demonstrates how roleplay and instruction attacks can bypass naive guardrails | Introduces AI security concepts in a safe environment |
+| Scam response training | Walks through voice-clone, phishing, and deepfake endorsement scenarios | Teaches verification before action |
+| Content moderation sandbox | Asks users to classify realistic social posts as safe, fake, or suspicious | Encourages context-aware media judgment |
+| Quiz engine | Randomized rounds with scoring and explanations | Reinforces retention through practice |
+| Digital literacy resources | Curated guidance for families and educators | Connects technical risks to everyday rules and habits |
+| Community sharing | Local CSV-backed experience sharing | Allows lightweight discussion without external services |
 
 ## Tech Stack
 
-| Area | Tools |
+| Layer | Tools |
 | --- | --- |
-| App framework | Streamlit |
+| Application | Streamlit |
 | Language | Python |
-| Data handling | Pandas, JSON, CSV |
-| Content | Markdown, local datasets |
-| Styling | Custom CSS theme |
-| Assets | Local forensic image set |
+| Data | JSON, CSV, Markdown |
+| Data handling | Pandas |
+| Styling | Custom CSS and Streamlit theme config |
+| Testing | Pytest |
 
-## Project Structure
+## Architecture Overview
+
+```text
+Streamlit UI
+   |
+   |-- ai_safety_app.py         # Page layout, navigation, and interactive modules
+   |-- src/config.py            # Centralized project paths and app constants
+   |-- src/content_manager.py   # Markdown, quiz, and research source loading
+   `-- src/quiz_engine.py       # Quiz state, scoring, and explanations
+
+Data layer
+   |
+   |-- data/content/            # Educational markdown
+   |-- data/interactive/        # Quiz data and local sharing example
+   `-- data/research/           # Curated source list
+
+Presentation
+   |
+   |-- styles/style.css         # Custom visual system
+   `-- images/                  # Forensic examples and README assets
+```
+
+## Folder Structure
 
 ```text
 .
-|-- ai_safety_app.py                 # Main Streamlit application and navigation
+|-- ai_safety_app.py
 |-- src/
-|   |-- content_manager.py           # Markdown, quiz, and research data loaders
-|   `-- quiz_engine.py               # Randomized quiz flow and scoring
+|   |-- config.py
+|   |-- content_manager.py
+|   `-- quiz_engine.py
 |-- data/
-|   |-- content/                     # Educational markdown content
-|   |-- interactive/                 # Quiz data and shared experience CSV
-|   `-- research/                    # Curated AI safety source list
-|-- images/                          # Local forensic challenge visuals
-|-- styles/style.css                 # Custom Streamlit visual theme
-`-- requirements.txt
+|   |-- content/
+|   |-- interactive/
+|   `-- research/
+|-- images/
+|-- styles/
+|-- tests/
+|-- requirements.txt
+|-- requirements-dev.txt
+`-- README.md
 ```
 
-## Getting Started
-
-### 1. Clone the repository
+## Local Setup
 
 ```bash
 git clone https://github.com/sidhesh0706/safetycontent.git
 cd safetycontent
-```
 
-### 2. Create and activate a virtual environment
-
-```bash
 python -m venv .venv
 .venv\Scripts\activate
-```
 
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
-
-### 4. Run the app
-
-```bash
 streamlit run ai_safety_app.py
 ```
 
-Then open the local URL shown by Streamlit, usually `http://localhost:8501`.
+The app will open at the local URL printed by Streamlit, usually `http://localhost:8501`.
 
-## Learning Modules
+## Testing
 
-| Module | What users practice |
-| --- | --- |
-| Project Introduction | Understanding why AI safety matters for families and classrooms |
-| Risks and Misinformation | Evaluating deepfakes, bias, synthetic media, and safety bypasses |
-| Forensic Challenge | Inspecting generated images for visual artifacts |
-| AI Text X-Ray Analyzer | Recognizing common synthetic-writing patterns |
-| Content Moderator Sandbox | Classifying posts as real, fake, or risky |
-| Prompt Injection Simulator | Understanding how adversarial prompts bypass guardrails |
-| Crisis Simulator | Responding safely to voice-clone, phishing, and deepfake scams |
-| Digital Literacy Guide | Building verification habits and family/classroom AI rules |
-| Quiz | Reinforcing concepts through scored practice |
-| Research and Resources | Exploring credible external AI safety references |
+Install development dependencies and run the lightweight test suite:
 
-## Design Goals
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
 
-- Make AI safety practical for non-technical audiences.
-- Convert passive awareness into active verification habits.
-- Give educators ready-to-use modules for classroom discussion.
-- Help families create safer norms around AI tools, social media, and synthetic content.
-- Present a polished, portfolio-ready Streamlit application with local assets and custom styling.
+Current tests cover:
 
-## Deployment Notes
+- required content, image, style, quiz, and research files
+- markdown content loading
+- quiz question schema and answer validity
+- research source table columns
 
-This project is ready for deployment on Streamlit Community Cloud:
+## Deployment
+
+This project is ready for Streamlit Community Cloud.
 
 1. Push the repository to GitHub.
-2. Create a new Streamlit app from the repository.
-3. Set the entry point to `ai_safety_app.py`.
-4. Deploy with the dependencies from `requirements.txt`.
+2. Create a new Streamlit app.
+3. Select this repository.
+4. Set the entry point to `ai_safety_app.py`.
+5. Deploy with `requirements.txt`.
 
 No API keys are required for the current version.
 
-## Future Improvements
+## Product Decisions
 
-- Add authenticated moderation for community posts.
-- Store shared experiences in a database instead of a CSV file.
-- Add more age-specific learning paths.
-- Include classroom worksheets or exportable facilitator notes.
-- Add automated tests for data loading and quiz behavior.
+- **Streamlit-first UX:** prioritizes fast iteration and interactive education over heavy frontend infrastructure.
+- **Local data files:** keeps the project easy to inspect, clone, and run without a database.
+- **Rule-based simulations:** makes AI safety concepts understandable without pretending to be a production detector.
+- **Centralized paths:** avoids fragile working-directory assumptions and makes tests easier to run.
+- **Non-alarmist copy:** frames AI safety as practical literacy instead of fear-based messaging.
+
+## What This Demonstrates
+
+- Ability to turn a social/technical AI risk area into a usable educational product.
+- Strong product framing for parents, educators, and students.
+- Practical Streamlit app development with custom styling and multiple interactive workflows.
+- Data-driven quiz/content loading using JSON, CSV, and Markdown.
+- Basic maintainability through centralized config, repo hygiene, and tests.
+- Recruiter-friendly documentation that explains product value, architecture, setup, and limitations.
+
+## Known Limitations
+
+- Community sharing uses a local CSV file and is not designed for multi-user production deployment.
+- The text analyzer is educational and rule-based; it should not be treated as a reliable AI detector.
+- The forensic cases are static training examples, not a full media authentication system.
+- There is no authentication, moderation workflow, or persistent database yet.
+
+## Roadmap
+
+- Add deployed app screenshots and a hosted demo link.
+- Move community submissions to a database or managed backend.
+- Add role-specific learning paths for students, parents, and educators.
+- Add facilitator notes or printable classroom activities.
+- Expand tests around quiz scoring and data validation.
+- Add accessibility QA for color contrast, keyboard navigation, and mobile layouts.
+
+## Recommended GitHub Metadata
+
+**Description:** Streamlit AI safety education platform with deepfake forensics, prompt-injection labs, scam simulations, quizzes, and digital literacy resources.
+
+**Topics:** `ai-safety`, `streamlit`, `digital-literacy`, `deepfakes`, `misinformation`, `prompt-injection`, `cybersecurity-awareness`, `education`, `python`, `media-literacy`
 
 ## Author
 

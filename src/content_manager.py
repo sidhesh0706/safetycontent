@@ -1,18 +1,15 @@
-import os
 import json
 import pandas as pd
 import streamlit as st  # <--- CRITICAL IMPORT ADDED
 
-# Define the base paths (relative to the project root, where ai_safety_app.py is)
-CONTENT_DIR = "data/content"
-RESEARCH_FILE = "data/research/ai_safety_sources.csv"
-QUIZ_FILE = "data/interactive/quiz_data.json"
+from src.config import CONTENT_DIR, QUIZ_FILE, RESEARCH_FILE
+
 
 def load_markdown_content(filename: str) -> str:
     """Loads and returns the content of a markdown file."""
-    filepath = os.path.join(CONTENT_DIR, filename)
+    filepath = CONTENT_DIR / filename
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with filepath.open("r", encoding="utf-8") as f:
             return f.read()
     except FileNotFoundError:
         # Use st.error only if running Streamlit, otherwise, print/log
@@ -47,7 +44,7 @@ def load_research_sources():
 def load_quiz_questions() -> list:
     """Loads quiz questions from the external JSON file."""
     try:
-        with open(QUIZ_FILE, 'r', encoding='utf-8') as f:
+        with QUIZ_FILE.open("r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         if 'streamlit' in st.__name__:

@@ -1,28 +1,21 @@
 import streamlit as st
 from src.quiz_engine import run_quiz
 from src.content_manager import load_markdown_content, load_research_sources
+from src.config import SHARED_EXPERIENCES_FILE, STYLE_FILE
 import pandas as pd
-import os
-import json
 
 st.set_page_config(
-    page_title="AI Safety App",
+    page_title="AI Safety Content Guide",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# --- Define the shared experiences file path ---
-FEEDBACK_FILE = "data/interactive/shared_experiences.csv"
-
-
-# -----------------------------------------------
-
 # --- Inject Custom CSS Function ---
 def inject_custom_css():
     """Reads and injects the custom CSS for a better look."""
     try:
-        with open("styles/style.css") as f:
+        with STYLE_FILE.open("r", encoding="utf-8") as f:
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     except FileNotFoundError:
         st.warning("Could not find styles/style.css. Please check the 'styles' directory.")
@@ -36,12 +29,12 @@ def inject_custom_css():
 def delete_experience(row_index):
     """Loads data, deletes the specified row index, and overwrites the CSV."""
     try:
-        df = pd.read_csv(FEEDBACK_FILE)
+        df = pd.read_csv(SHARED_EXPERIENCES_FILE)
         df = df.sort_values(by='Timestamp', ascending=False).reset_index(drop=True)
 
         if 0 <= row_index < len(df):
             df = df.drop(row_index).reset_index(drop=True)
-            df.to_csv(FEEDBACK_FILE, mode='w', index=False, header=True)
+            df.to_csv(SHARED_EXPERIENCES_FILE, mode='w', index=False, header=True)
             st.success("Post deleted successfully!")
             st.rerun()
         else:
@@ -55,6 +48,7 @@ def delete_experience(row_index):
 
 def save_experience(name, role, experience):
     """Saves the user experience to a CSV file."""
+    SHARED_EXPERIENCES_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     new_data = pd.DataFrame({
         'Timestamp': [pd.Timestamp.now()],
@@ -63,10 +57,10 @@ def save_experience(name, role, experience):
         'Experience': [experience]
     })
 
-    if not os.path.exists(FEEDBACK_FILE):
-        new_data.to_csv(FEEDBACK_FILE, mode='w', index=False, header=True)
+    if not SHARED_EXPERIENCES_FILE.exists():
+        new_data.to_csv(SHARED_EXPERIENCES_FILE, mode='w', index=False, header=True)
     else:
-        new_data.to_csv(FEEDBACK_FILE, mode='a', index=False, header=False)
+        new_data.to_csv(SHARED_EXPERIENCES_FILE, mode='a', index=False, header=False)
 
     st.success("🎉 Thank you! Your experience has been shared with the community.")
 
@@ -74,7 +68,7 @@ def save_experience(name, role, experience):
 def load_shared_experiences():
     """Loads and displays existing shared experiences with a Delete button."""
     try:
-        df = pd.read_csv(FEEDBACK_FILE)
+        df = pd.read_csv(SHARED_EXPERIENCES_FILE)
         df = df.sort_values(by='Timestamp', ascending=False).reset_index(drop=True)
 
         st.markdown("### Recent Experiences from Parents and Educators")

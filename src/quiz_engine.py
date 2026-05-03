@@ -1,9 +1,8 @@
 import streamlit as st
 import random
-from src.content_manager import load_quiz_questions
 
-# Number of questions to show per attempt
-QUESTIONS_PER_ROUND = 3
+from src.config import QUESTIONS_PER_ROUND
+from src.content_manager import load_quiz_questions
 
 
 def initialize_quiz_state():

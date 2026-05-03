@@ -1,6 +1,7 @@
 .venv/
 venv/
 env/
+.idea/
 __pycache__/
 *.py[cod]
 *$py.class
@@ -8,10 +9,13 @@ __pycache__/
 .env
 .env.*
 .streamlit/secrets.toml
+data/interactive/shared_experiences.csv
 
 .pytest_cache/
+pytest-cache-files-*/
 .mypy_cache/
 .ruff_cache/
+.tmp-edge-profile/
 
 .DS_Store
 Thumbs.db
