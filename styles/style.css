@@ -328,33 +328,84 @@ a:hover {
 }
 
 /* Input Fields */
-input, textarea, select, [data-baseweb="select"] > div, div[data-baseweb="base-input"] {
+input, textarea, select {
     background-color: rgba(15, 23, 42, 0.95) !important;
     border: 1px solid rgba(248, 181, 0, 0.35) !important;
     color: #f8fafc !important;
     border-radius: 12px !important;
     font-size: 1.25rem !important;
-    padding: 12px !important;
+    line-height: 1.5 !important;
+    padding: 12px 14px !important;
     transition: all 0.3s ease !important;
 }
 
+div[data-baseweb="base-input"] {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border: 1px solid rgba(248, 181, 0, 0.35) !important;
+    border-radius: 12px !important;
+    min-height: 58px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+}
+
+div[data-baseweb="base-input"] input {
+    background: transparent !important;
+    border: none !important;
+    height: 54px !important;
+    line-height: 54px !important;
+    padding: 0 !important;
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+}
+
+textarea {
+    line-height: 1.5 !important;
+    min-height: 130px !important;
+}
+
 [data-baseweb="select"] > div {
-    min-height: 56px !important;
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border: 1px solid rgba(248, 181, 0, 0.45) !important;
+    border-radius: 12px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
 }
 
 [data-baseweb="select"] span,
 [data-baseweb="select"] input,
+[data-baseweb="select"] > div > div,
 [data-baseweb="select"] div[role="button"],
 [data-baseweb="select"] [data-testid="stMarkdownContainer"] {
     color: #f8fafc !important;
     -webkit-text-fill-color: #f8fafc !important;
     font-size: 1.25rem !important;
-    line-height: 1.4 !important;
+    line-height: 1.2 !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+}
+
+[data-baseweb="select"] input {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
 }
 
 [data-baseweb="select"] svg {
     color: #f8b500 !important;
     fill: #f8b500 !important;
+    flex-shrink: 0 !important;
 }
 input:focus, textarea:focus, div[data-baseweb="base-input"]:focus-within {
     border-color: #f8b500 !important;
@@ -412,7 +463,10 @@ label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
     color: #f8fafc !important;
     -webkit-text-fill-color: #f8fafc !important;
     font-size: 1.2rem !important;
-    line-height: 1.5 !important;
+    line-height: 1.35 !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
 }
 [data-baseweb="popover"] li:hover {
     background-color: rgba(248, 181, 0, 0.2) !important;
