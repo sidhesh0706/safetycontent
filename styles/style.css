@@ -83,9 +83,9 @@ h1 {
     background: linear-gradient(90deg, #fceabb, #f8b500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 3.5rem !important;
+    font-size: 4.4rem !important;
     font-weight: 900 !important;
-    letter-spacing: -1.5px !important;
+    letter-spacing: 0 !important;
     margin-bottom: 30px !important;
     line-height: 1.2 !important;
 }
@@ -93,8 +93,8 @@ h1 {
 h2 {
     color: #ffffff !important;
     font-weight: 800 !important;
-    letter-spacing: -0.5px !important;
-    font-size: 2.2rem !important;
+    letter-spacing: 0 !important;
+    font-size: 2.8rem !important;
     margin-top: 40px !important;
     border-left: 6px solid #f8b500 !important;
     padding-left: 20px !important;
@@ -107,23 +107,29 @@ h2 {
 h3 {
     color: #ffd666 !important;
     font-weight: 700 !important;
-    font-size: 1.8rem !important;
+    font-size: 2.2rem !important;
     margin-top: 30px !important;
 }
 
 h4 {
     color: #ffcc33 !important;
     font-weight: 700 !important;
-    font-size: 1.4rem !important;
+    font-size: 1.65rem !important;
     margin-bottom: 15px !important;
 }
 
 /* Make text larger and more readable */
 p, li, span, div.stMarkdown, [data-testid="stMarkdownContainer"] {
-    font-size: 1.15rem !important;
-    line-height: 1.8 !important;
+    font-size: 1.3rem !important;
+    line-height: 1.9 !important;
     color: #cbd5e1 !important;
     font-weight: 400 !important;
+}
+
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li {
+    font-size: 1.3rem !important;
+    line-height: 1.9 !important;
 }
 
 /* Emphasize bold text */
@@ -139,7 +145,7 @@ div.stButton > button, div[data-testid="stFormSubmitButton"] > button {
     border: none !important;
     border-radius: 14px !important;
     padding: 14px 35px !important;
-    font-size: 1.1rem !important;
+    font-size: 1.2rem !important;
     font-weight: 800 !important;
     font-family: 'Outfit', sans-serif !important;
     text-transform: uppercase !important;
@@ -167,7 +173,7 @@ div.stButton > button:hover, div[data-testid="stFormSubmitButton"] > button:hove
 
 [data-testid="stSidebarNav"] a {
     font-family: 'Outfit', sans-serif !important;
-    font-size: 1.1rem !important;
+    font-size: 1.25rem !important;
     padding: 10px 20px !important;
     transition: all 0.2s ease !important;
 }
@@ -219,7 +225,7 @@ div[data-testid="stMetric"] {
 
 /* Modern Tabs */
 button[data-baseweb="tab"] {
-    font-size: 1.25rem !important;
+    font-size: 1.35rem !important;
     font-family: 'Outfit', sans-serif !important;
     font-weight: 600 !important;
     color: #94a3b8 !important;
@@ -252,7 +258,7 @@ button[data-baseweb="tab"][aria-selected="true"] {
 }
 
 [data-testid="stExpander"] summary {
-    font-size: 1.25rem !important;
+    font-size: 1.35rem !important;
     font-weight: 600 !important;
     font-family: 'Outfit', sans-serif !important;
     color: #f8b500 !important;
@@ -271,7 +277,7 @@ div[data-testid="stAlert"] {
     padding: 20px 25px !important;
     backdrop-filter: blur(10px) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-    font-size: 1.15rem !important;
+    font-size: 1.25rem !important;
 }
 
 /* Links */
@@ -288,13 +294,32 @@ a:hover {
 
 /* Input Fields */
 input, textarea, select, [data-baseweb="select"] > div, div[data-baseweb="base-input"] {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: #fff !important;
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border: 1px solid rgba(248, 181, 0, 0.35) !important;
+    color: #f8fafc !important;
     border-radius: 12px !important;
-    font-size: 1.1rem !important;
+    font-size: 1.25rem !important;
     padding: 12px !important;
     transition: all 0.3s ease !important;
+}
+
+[data-baseweb="select"] > div {
+    min-height: 56px !important;
+}
+
+[data-baseweb="select"] span,
+[data-baseweb="select"] input,
+[data-baseweb="select"] div[role="button"],
+[data-baseweb="select"] [data-testid="stMarkdownContainer"] {
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+}
+
+[data-baseweb="select"] svg {
+    color: #f8b500 !important;
+    fill: #f8b500 !important;
 }
 input:focus, textarea:focus, div[data-baseweb="base-input"]:focus-within {
     border-color: #f8b500 !important;
@@ -335,6 +360,7 @@ tr:hover td {
 label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
     color: #ffd666 !important;
     font-weight: 600 !important;
+    font-size: 1.25rem !important;
 }
 
 /* Fix Dropdown Popover List */
@@ -343,8 +369,15 @@ label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 8px !important;
 }
-[data-baseweb="popover"] li, [data-baseweb="popover"] span, [data-baseweb="popover"] div {
+[data-baseweb="popover"] li,
+[data-baseweb="popover"] span,
+[data-baseweb="popover"] div,
+[role="listbox"] li,
+[role="option"] {
     color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
 }
 [data-baseweb="popover"] li:hover {
     background-color: rgba(248, 181, 0, 0.2) !important;
@@ -352,5 +385,6 @@ label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
 
 /* Ensure selected option text is visible inside the box */
 [data-baseweb="select"] span, [data-baseweb="select"] div, [data-baseweb="select"] {
-    color: #ffffff !important;
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
 }
