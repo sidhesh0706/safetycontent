@@ -90,6 +90,16 @@ h1 {
     line-height: 1.2 !important;
 }
 
+h1 span {
+    background: inherit !important;
+    -webkit-background-clip: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+}
+
 h2 {
     color: #ffffff !important;
     font-weight: 800 !important;
@@ -102,6 +112,15 @@ h2 {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     border-radius: 0 10px 10px 0 !important;
+}
+
+h2 span, h3 span, h4 span, h5 span, h6 span {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
 }
 
 h3 {
@@ -119,7 +138,7 @@ h4 {
 }
 
 /* Make text larger and more readable */
-p, li, span, div.stMarkdown, [data-testid="stMarkdownContainer"] {
+p, li, div.stMarkdown, [data-testid="stMarkdownContainer"] {
     font-size: 1.3rem !important;
     line-height: 1.9 !important;
     color: #cbd5e1 !important;
@@ -130,6 +149,22 @@ p, li, span, div.stMarkdown, [data-testid="stMarkdownContainer"] {
 [data-testid="stMarkdownContainer"] li {
     font-size: 1.3rem !important;
     line-height: 1.9 !important;
+}
+
+[data-testid="stMarkdownContainer"] h1 {
+    font-size: 4.4rem !important;
+}
+
+[data-testid="stMarkdownContainer"] h2 {
+    font-size: 2.8rem !important;
+}
+
+[data-testid="stMarkdownContainer"] h3 {
+    font-size: 2.2rem !important;
+}
+
+[data-testid="stMarkdownContainer"] h4 {
+    font-size: 1.65rem !important;
 }
 
 /* Emphasize bold text */

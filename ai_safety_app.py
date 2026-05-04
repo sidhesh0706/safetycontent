@@ -235,7 +235,7 @@ def display_intro_section():
 
 def display_risks_section():
     """Enhanced Risks section with tripled General content and conditional age-gating."""
-    is_gated = st.session_state.get('age_profile') == "Pre-Teen (Gated Content)"
+    is_gated = st.session_state.get('age_profile') == "Pre-Teen"
 
     # --- Section Header ---
     st.header("Understanding the Dangers 🚨")
@@ -338,7 +338,7 @@ def display_risks_section():
 def display_literacy_section():
     """Displays the enhanced Literacy section using visual structure and columns."""
 
-    is_gated = st.session_state.get('age_profile') == "Pre-Teen (Gated Content)"  # Add gating check here
+    is_gated = st.session_state.get('age_profile') == "Pre-Teen"
 
     st.header("Practical Guidance for Families & Classrooms 👨‍👩‍👧‍👦")
     st.divider()
@@ -1014,7 +1014,7 @@ def display_guide():
     st.sidebar.markdown("### Content Gating 🔒")
     st.sidebar.selectbox(
         "Select User Profile:",
-        ["General (All Content)", "Pre-Teen (Gated Content)"],
+        ["General", "Pre-Teen"],
         key='age_profile'
     )
     st.sidebar.caption("Gating controls exposure to specific deepfake examples.")
