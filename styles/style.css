@@ -377,11 +377,15 @@ textarea {
     overflow: visible !important;
 }
 
+[data-baseweb="select"] > div > div {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 58px !important;
+    overflow: visible !important;
+}
+
 [data-baseweb="select"] span,
-[data-baseweb="select"] input,
-[data-baseweb="select"] > div > div,
-[data-baseweb="select"] div[role="button"],
-[data-baseweb="select"] [data-testid="stMarkdownContainer"] {
+[data-baseweb="select"] div[role="button"] {
     color: #f8fafc !important;
     -webkit-text-fill-color: #f8fafc !important;
     font-size: 1.25rem !important;
@@ -400,6 +404,7 @@ textarea {
     background: transparent !important;
     padding: 0 !important;
     line-height: 1.2 !important;
+    caret-color: transparent !important;
 }
 
 [data-baseweb="select"] svg {
@@ -454,10 +459,16 @@ label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
     background-color: #0f172a !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 8px !important;
+    overflow: hidden !important;
 }
-[data-baseweb="popover"] li,
-[data-baseweb="popover"] span,
-[data-baseweb="popover"] div,
+
+[role="listbox"] {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(248, 181, 0, 0.25) !important;
+    border-radius: 8px !important;
+    padding: 6px !important;
+}
+
 [role="listbox"] li,
 [role="option"] {
     color: #f8fafc !important;
@@ -467,8 +478,19 @@ label, div[data-testid="stWidgetLabel"] p, .stSelectbox label {
     min-height: 44px !important;
     display: flex !important;
     align-items: center !important;
+    padding: 8px 12px !important;
+    background-color: transparent !important;
 }
-[data-baseweb="popover"] li:hover {
+
+[role="listbox"] li *,
+[role="option"] * {
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+    font-size: 1.2rem !important;
+}
+
+[role="listbox"] li:hover,
+[role="option"]:hover {
     background-color: rgba(248, 181, 0, 0.2) !important;
 }
 
