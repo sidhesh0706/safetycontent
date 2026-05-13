@@ -1,6 +1,6 @@
 import streamlit as st
 from src.quiz_engine import run_quiz
-from src.content_manager import load_markdown_content, load_research_sources
+from src.content_manager import load_markdown_content, load_quiz_questions, load_research_sources
 from src.config import SHARED_EXPERIENCES_FILE, STYLE_FILE
 import pandas as pd
 
@@ -145,6 +145,23 @@ def display_intro_section():
         intent and algorithmic output, protecting the integrity of our shared information landscape 
         through verified knowledge and ethical interaction.
     """)
+
+    st.markdown("### Exhibition Snapshot")
+    quiz_count = len(load_quiz_questions())
+    snap1, snap2, snap3, snap4 = st.columns(4)
+    snap1.metric("Forensic Cases", "9")
+    snap2.metric("Quiz Prompts", str(quiz_count))
+    snap3.metric("Interactive Labs", "4")
+    snap4.metric("External APIs", "0")
+
+    with st.container(border=True):
+        st.markdown("#### Suggested 3-minute panel demo")
+        st.markdown("""
+        1. Start with the **Forensic Challenge** to show visual AI-artifact detection.
+        2. Move to the **Prompt Injection Simulator** to explain AI security risk.
+        3. Finish with the **Content Moderator Sandbox** or **Crisis Simulator** to show practical decision-making.
+        """)
+        st.caption("This project is intentionally lightweight: it uses local data, transparent rules, and no hidden model calls so the learning flow is easy to inspect.")
 
     st.title("PROJECT OVERVIEW & SAFETY MISSION")
     st.divider()
@@ -657,11 +674,35 @@ def display_forensic_module():
         st.write("- **Edges:** Look for blurring where hair meets the background.")
         st.write("- **Texture:** Does the skin look overly smooth or 'waxy'?")
 
+        true_artifacts = [selected_case["err1"], selected_case["err2"], selected_case["err3"]]
+        artifact_options = true_artifacts + [
+            "High image resolution by itself",
+            "Centered subject framing",
+            "Dramatic color palette"
+        ]
+        selected_artifacts = st.multiselect(
+            "Mark the clues you noticed before revealing:",
+            artifact_options,
+            key=f"artifact_guess_{selected_case['title']}"
+        )
+
         if st.button("Reveal Artifacts", key=selected_case["title"]):
+            correct = [item for item in selected_artifacts if item in true_artifacts]
+            false_positives = [item for item in selected_artifacts if item not in true_artifacts]
+
+            if selected_artifacts:
+                st.metric("Inspection Accuracy", f"{len(correct)} / {len(true_artifacts)}")
+                if false_positives:
+                    st.warning("Some selected clues are weak evidence by themselves. Strong verification depends on multiple independent signals.")
+                else:
+                    st.success("Good eye. You focused on evidence that can actually support a synthetic-media judgment.")
+            else:
+                st.info("Try making a prediction before revealing. The goal is to build observation habits, not just see the answer.")
+
             st.error(f"**Artifact 1:** {selected_case['err1']}")
             st.error(f"**Artifact 2:** {selected_case['err2']}")
             st.error(f"**Artifact 3:** {selected_case['err3']}")
-            st.balloons()
+            st.success("Takeaway: one artifact is a clue, not proof. The strongest judgments combine visual inspection, source checks, and context verification.")
 
 
 import time
@@ -1018,6 +1059,9 @@ def display_guide():
         key='age_profile'
     )
     st.sidebar.caption("Gating controls exposure to specific deepfake examples.")
+    demo_mode = st.sidebar.toggle("Panel Demo Mode", value=False)
+    if demo_mode:
+        st.sidebar.info("Suggested flow: Forensics → Prompt Injection → Content Moderator → Quiz.")
     st.sidebar.divider()
 
     section = st.sidebar.radio(
